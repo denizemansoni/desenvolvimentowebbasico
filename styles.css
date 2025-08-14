@@ -1,11 +1,18 @@
+/*RESET BÁSICO - REMOVER MARGENS E PADDING PADRÃO DOS ELEMENTOS*/
+*{
+    margin: 0; /* Remove margens padrão */
+    padding: 0; /* Remove padding padrão */
+    box-sizing: border-box; /* Inclui padding e border na largura e altura totais dos elementos */
+}
+
 body{
-    background-color:white;
-    font-family: Arial, Helvetica, sans-serif;
-    color: black;
-    text-align: center;
-    font-size: 20px;
-    margin: 0;
-    padding: 0;
+    background-color:white; /* Cor de fundo clara para o corpo */
+    font-family: Arial, Helvetica, sans-serif; /* Fonte padrão */
+    color: offwhite; /* Cor do texto */
+    text-align: center; /* Centraliza o texto */
+    font-size: 20px; /* Tamanho da fonte */
+    margin: 0; /* Remove margens padrão */
+    padding: 40px; /* Espaçamento interno */
 }
 
 header{
@@ -18,37 +25,103 @@ header{
 footer{
     background-color: cornflowerblue;
     padding: 20px;
-    position: flex;
-    bottom: 0;
-    width: 100%;
+    position: flex; /* Mantém o rodapé fixo na parte inferior */
+    bottom: 0; /* Fixa o rodapé na parte inferior */
+    width: 100%; /* Ocupa toda a largura */
     color: white;
     text-align: center;
     font-size: small;
     margin-top: 20px;
-    position: relative;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    position: relative; /* Mantém o rodapé na posição relativa */
+    left: 0; /* Alinha o rodapé à esquerda */
+    right: 0; /* Alinha o rodapé à direita */
+    bottom: 0; /* Fixa o rodapé na parte inferior */
     }
 
 section{
     padding: 20px;
     margin: 20px;
     background-color:rgb(249, 250, 254);
-    border-radius: 10px;
+    border-radius: 10px; /* Bordas arredondadas */
+    border: 2px solid rgb(3, 70, 109); /* Borda */
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
     
 }
 main{
     display:flex;
-    flex-direction: column;
-    align-items:normal;
-    justify-content: center;
-    padding: 20px;
-    margin: 20px;
+    flex-direction: column; /* Alinha os itens em coluna */
+    align-items:normal; /* Alinha os itens ao centro */
+    justify-content: center; /* Centraliza os itens verticalmente */
+    padding: 20px; /* Espaçamento interno */
+    margin: 20px; /* Espaçamento externo */
     background-color: rgb(187, 215, 251);
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    border-radius: 10px; /* Bordas arredondadas */
+    box-shadow: 0 0 10px rgba(0,0,0,0.1); /* Sombra leve */
 }
 
+h2{
+    font-size: 1.8em; /* Aumenta o tamanho da fonte */
+    margin-bottom: 10px; /* Espaçamento abaixo do título */
+    text-decoration: underline;
+}
 
+.destaque {
+    font-size: italic;
+    background-color:rgb(3, 70, 109);
+}
+#importante {
+    border-top: 5px solid rgb(3, 70, 109);
+    padding-top: 10px;
+    margin-top: 10px;
+}
+
+/*Exercício Grid e Flexbox - Galeria de Imagens*/
+.container {
+    display: flex;
+    flex-wrap: wrap; /* Permite que os itens quebrem de linha */
+    justify-content: center; /* Centraliza os itens horizontalmente */
+    gap: 20px; /* Espaçamento entre os itens */
+    margin-top: 20px; /* Espaçamento superior */
+    padding: 10px; /* Espaçamento interno */
+    
+}
+.gallery {
+   display: grid; /* Usa Grid para organizar as imagens */
+   grid-template-columns: repeat(4, 1fr); /* Quatro colunas de largura igual */
+   gap: 10px; /* Espaçamento entre as imagens */
+    background-color: rgb(249, 250, 254);
+    padding: 10px; /* Espaçamento interno */
+    border-radius: 10px; /* Bordas arredondadas */
+    max-width: 1000px; /* Largura máxima da galeria */
+}
+figure  {
+    background-color: white;
+    border: 1px solid #ccc; /* Borda ao redor de cada figura */
+    border-radius: 5px; /* Bordas arredondadas */
+    padding: 10px; /* Espaçamento interno */
+    box-shadow: 0 0 5px rgba(0,0,0,0.1); /* Sombra leve */
+    text-align: center; /* Centraliza o texto da legenda */
+}
+img{
+    max-width: 100%; /* Garante que a imagem não ultrapasse o tamanho do contêiner */
+    height: auto; /* Mantém a proporção da imagem */
+    border-radius: 5px; /* Bordas arredondadas */
+    display: block; /* Remove espaço embaixo da imagem */
+    margin: 0 auto; /* Centraliza a imagem */
+    margin-bottom: 8px; /* Espaçamento abaixo da imagem */
+}
+figcaption {
+    font-size: 0.9em; /* Tamanho da fonte da legenda */
+    color: #555; /* Cor da legenda */
+}
+
+@media (max-width: 800px) {
+    .gallery {
+        grid-template-columns: repeat(2, 1fr); /* Duas colunas em telas menores */
+    }
+}
+@media (max-width: 500px) {
+    .gallery {
+        grid-template-columns: 1fr; /* Uma coluna em telas muito pequenas */
+    }
+}
